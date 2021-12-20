@@ -1,0 +1,21 @@
+
+//Connecion using the native MongoDB Driver
+
+const MongoClient =require('mongodb')
+
+const url = 'mongodb://127.0.0.1:27017'
+
+const dbName ='game-of-thrones'
+
+let db 
+
+MongoClient.connect(url, {useNewUrlParser:true}, (err, client) =>{
+
+    if (err) return console.log(err)
+
+    //Storing reference to the database so you can use later
+    db=client.db(dbName)
+    console.log(`Connected MongoDB: ${url}`)
+    console.log(`Database : ${dbName}`)
+
+})
